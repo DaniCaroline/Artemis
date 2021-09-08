@@ -6,7 +6,7 @@ module.exports = {
       connection: {
           host: 'localhost',
           user: 'root',
-          password: process.env.PASSWORD,
+          password: 'zBzw64CHP-100',
           database: 'db_xp'
       },
       migrations:{
