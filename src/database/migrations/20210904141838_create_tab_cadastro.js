@@ -5,6 +5,7 @@ exports.up = function(knex) {
         table.increments('id');
         table.specificType('cpf', 'VARCHAR(11)').notNullable().unique();
         table.specificType('nome', 'VARCHAR(50)').notNullable();
+        table.specificType('endereco', 'VARCHAR(50)').notNullable();
     }).then(function () {
         console.dir('Tabela users criada com sucesso!');
     }).catch(function (err) {

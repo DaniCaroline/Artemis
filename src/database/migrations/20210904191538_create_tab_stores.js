@@ -6,7 +6,6 @@ exports.up = function (knex) {
         table.increments('id');
         table.specificType('nome', 'VARCHAR(50)').notNullable().unique();
         table.specificType('cnpj', 'VARCHAR(14)').notNullable().unique();
-        table.specificType('endereco', 'VARCHAR(50)').notNullable();
     }).then(function () {
         console.dir('Tabela stores criada com sucesso!');
     }).catch(function (err) {
