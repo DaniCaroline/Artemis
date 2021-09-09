@@ -1,4 +1,5 @@
 // Update with your config settings.
+require('dotenv').config()
 
 module.exports = {
   development: {
@@ -6,8 +7,8 @@ module.exports = {
       connection: {
           host: 'localhost',
           user: 'root',
-          password: 'zBzw64CHP-100',
-          database: 'db_xp'
+          password: process.env.PASSWORD_MYSQL,
+          database: 'ecommerce'
       },
       migrations:{
         tableName: 'knex_migrations',
