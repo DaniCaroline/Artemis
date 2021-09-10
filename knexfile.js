@@ -1,5 +1,4 @@
 // Update with your config settings.
-require('dotenv').config()
 
 module.exports = {
   development: {
@@ -7,15 +6,15 @@ module.exports = {
       connection: {
           host: 'localhost',
           user: 'root',
-          password: process.env.PASSWORD_MYSQL,
-          database: 'ecommerce'
+          password: '220296Dani',
+          database: 'db_xp'
       },
       migrations:{
         tableName: 'knex_migrations',
-        directory: `${__dirname}/src/database/migrations`
+        directory: `${__dirname}/infra/database/migrations`
       },
       seeds: {
-        directory: `${__dirname}/src/database/seeds`
+        directory: `${__dirname}/infra/database/seeds`
       }      
   }
 };
