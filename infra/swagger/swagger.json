@@ -1,0 +1,374 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Artemis",
+    "version": "1.0.0",
+    "description": "Projeto Omni Channel - Luiza Code.",
+    "license": {
+      "name": "Licensed Under MIT",
+      "url": "https://spdx.org/licenses/MIT.html"
+    }
+  },
+  "servers": [
+    {
+      "url": "http://localhost:8000",
+      "description": "Artemis server"
+    }
+  ],
+  "paths": {
+    "/products": {
+      "get": {
+        "summary": "Listagem de produtos.",
+        "description": "Esta rota é reponsável por listar os produtos cadastrados.",
+        "tags": ["Produtos"],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Product"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/stores": {
+      "get": {
+        "summary": "Listagem de lojas.",
+        "description": "Esta rota é reponsável por listar as lojas cadastrados.",
+        "tags": ["Lojas"],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Store"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/orders": {
+      "get": {
+        "summary": "Listagem de pedidos (compras).",
+        "description": "Esta rota é reponsável por listar os pedidos realizados.",
+        "tags": ["Pedidos"],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Order"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ordersitems": {
+      "post": {
+        "summary": "Cadastro de itens do pedido.",
+        "description": "Esta rota é reponsável por cadastrar itens do pedido.",
+        "tags": ["Itens do Pedido"],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/OrderItemsCreate"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OrderItemsResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ordersitems/{id}": {
+      "delete": {
+        "summary": "Remover item do pedido.",
+        "description": "Esta rota é reponsável por remover item do pedido.",
+        "tags": ["Itens do Pedido"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id do item do pedido",
+            "required": true
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Item do pedido removido com sucesso!"
+          }
+        }
+      }
+    },
+    "/users": {
+      "post": {
+        "summary": "Cadastro de usuário.",
+        "description": "Esta rota é reponsável por listar os usuários cadastrados.",
+        "tags": ["Usuários"],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserCreate"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/User"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "summary": "Listagem de usuários.",
+        "description": "Esta rota é reponsável por listar os usuários cadastrados.",
+        "tags": ["Usuários"],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/User"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/users/{id}": {
+      "put": {
+        "summary": "Atualização de usuário.",
+        "description": "Esta rota é reponsável por atualizar os usuários cadastrados.",
+        "tags": ["Usuários"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id do usuário",
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserCreate"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/User"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Remover usuários por ID.",
+        "description": "Esta rota é reponsável por remover usuário por ID.",
+        "tags": ["Usuários"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id do usuário",
+            "required": true
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Usuário removido com sucesso!"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Product": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number",
+            "example": "1"
+          },
+          "description": {
+            "type": "string",
+            "example": "Smartphone Samsung Galaxy S20"
+          },
+          "value": {
+            "type": "number",
+            "example": "899.9"
+          },
+          "type": {
+            "type": "string",
+            "example": "Smartphone"
+          }
+        }
+      },
+      "Store": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number",
+            "example": "1"
+          },
+          "name": {
+            "type": "string",
+            "example": "MAGALU CAIÇARA"
+          },
+          "cnpj": {
+            "type": "string",
+            "example": "32588952000164"
+          },
+          "address": {
+            "type": "string",
+            "example": "185 Rua São João"
+          }
+        }
+      },
+      "Order": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number",
+            "example": "1"
+          },
+          "created_at": {
+            "type": "data",
+            "example": "2021-09-10T23:32:07.000Z"
+          },
+          "status": {
+            "type": "string",
+            "example": "Realizada"
+          },
+          "user_id": {
+            "type": "number",
+            "example": "2"
+          },
+          "store_id": {
+            "type": "number",
+            "example": "5"
+          }
+        }
+      },
+      "OrderItemsCreate": {
+        "type": "object",
+        "properties": {
+          "product_id": {
+            "type": "number",
+            "example": "1"
+          },
+          "order_id": {
+            "type": "number",
+            "example": "2"
+          }
+        }
+      },
+      "OrderItemsResponse": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number",
+            "example": "1"
+          },
+
+          "product_id": {
+            "type": "number",
+            "example": "1"
+          },
+          "order_id": {
+            "type": "number",
+            "example": "2"
+          }
+        }
+      },
+      "UserCreate": {
+        "type": "object",
+        "properties": {
+          "cpf": {
+            "type": "string"
+          },
+
+          "name": {
+            "type": "string"
+          },
+          "address": {
+            "type": "string"
+          }
+        }
+      },
+      "User": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number",
+            "example": "1"
+          },
+          "cpf": {
+            "type": "number",
+            "example": "12345678901"
+          },
+          "name": {
+            "type": "string",
+            "example": "Marília Moura"
+          },
+          "address": {
+            "type": "string",
+            "example": "185 Rua São João"
+          }
+        }
+      }
+    }
+  }
+}
