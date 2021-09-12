@@ -10,6 +10,7 @@ exports.seed = function(knex) {
         {id: 3, name: 'Karina Ferreira', cpf: '28950361721', address: '582 Praça James Maxwell'},
         {id: 4, name: 'Daniele Caroline', cpf: '56372819601', address: '989 Rua Espanha'},
         {id: 5, name: 'Yasmin Medeiros', cpf: '45218991231', address: 'Rua do Imperador'},
+        {id: 6, name: 'Danielle Rodrigues', cpf: '45218771231', address: 'Rua Francisca'},
 
       ]);
     });
