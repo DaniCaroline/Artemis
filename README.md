@@ -1,74 +1,104 @@
-# OMNI CHANNEL - Artemis
+# Ártemis
 
 ![Artemis](https://github.com/DaniCaroline/Artemis/blob/main/public/artemis.jpg)
 
 ---
-## Descrição
-Desenvolver um serviço HTTP resolvendo a funcionalidade de Omni Channel do cliente, atendendo os seguintes requisitos:
 
-* Adicionar um produto na lista da compra da cliente;
-* Remover um produto da lista da compra da cliente; 
-* Consultar todos os produtos disponíveis; 
-* Consultar a lista de compras da cliente.
+## Descrição do projeto
+
+O objetivo do projeto foi desenvolver um serviço HTTP resolvendo a funcionalidade de Omni Channel do cliente, atendendo os seguintes requisitos:
+
+- Adicionar um produto na lista da compra da cliente;
+- Remover um produto da lista da compra da cliente;
+- Consultar todos os produtos disponíveis;
+- Consultar a lista de compras da cliente.
 
 ---
-## Tecnologias
-- [NodeJS](https://nodejs.org/en/)
+
+## Tecnologias Utilizadas
+
+- [Node.js](https://nodejs.org/en/)
 - [Yarn](https://yarnpkg.com/)
 - [Swagger](https://swagger.io/)
-- [MySQL](mysql.com)
+- [MySQL](https://mysql.com)
 - [DBeaver](https://dbeaver.io/)
-- [Knex](http://knexjs.org/)
+- [Knex.js](http://knexjs.org/)
 - [Trello](https://trello.com/)
 - [VS Code](https://code.visualstudio.com/)
 
 ---
+
 ## Pré-requisitos
+
 Aconselhamos instalar o NodeJS atráves do [NVM](https://github.com/nvm-sh/nvm) que é um gerenciador de versões do NodeJS. Após instalá-lo, instalar o NodeJS com o comando:
+
 ```
 nvm install --lts
-```  
+```
 
 Instalar o yarn com o comando abaixo:
+
 ```
 npm i -g yarn
 ```
+
 Instalar o cli do Knex:
+
 ```
 npm i -g knex
 ```
 
 Instalar o MySQL.
 
-Após a instalação do MySQL criar o banco, conforme abaixo:
+Após a instalação do MySQL, execute o comando abaixo para criar o banco de dados:
+
 ```
 mysql -u root -p
 CREATE DATABASE db_xp;
 ```
 
-Com o banco de dados criados, execute os comandos abaixo, para criar e popular as tabelas:
+Com o banco de dados criado, execute os comandos abaixo para criar e popular as tabelas:
 
-- criar as tabelas:
+- Criar um arquivo de migração:
+
 ```
-knex migrade:latest
+knex migrate:make migration_name
 ```
 
-- inserir dados:
+- Inserir a migração no banco de dados:
+
+```
+knex migrate:latest
+```
+
+- Criar um arquivo seed:
+
+```
+knex seed:make seed_name
+```
+
+- Para executar arquivos seed:
+
 ```
 knex seed:run
 ```
 
 ---
+
 ## Como iniciar o projeto
-- ambiente de desenvolvimento:
+
+- Ambiente de desenvolvimento:
+
 ```
 yarn start-dev
 ```
 
-- ambiente de produção:
+- Ambiente de produção:
+
 ```
 yarn start
 ```
+
 O projeto estará disponível em <http://localhost:8000>
 
 ---
@@ -80,9 +110,11 @@ Acessando a documentação do projeto <http://localhost:8000/docs>.
 ---
 
 ## Desenvolvedoras
-* [Daniele Caroline](https://github.com/DaniCaroline)
-* [Daniele Rodrigues](https://github.com/livibellyrds)
-* [Karina Ferreira](https://github.com/KarinaFS)
-* [Marília Moura](https://github.com/Mariliamourafer)
-* [Yasmin Medeiros](https://github.com/medeiros-yasmin)
----
+
+- [Daniele Caroline](https://github.com/DaniCaroline)
+- [Daniele Rodrigues](https://github.com/livibellyrds)
+- [Karina Santos](https://github.com/KarinaFS)
+- [Marília Moura](https://github.com/Mariliamourafer)
+- [Yasmin Medeiros](https://github.com/medeiros-yasmin)
+
+Projeto desenvolvido na 3° Edição do [Luiza <Code>](https://github.com/luizalabs) em parceria com a [Gama Academy](https://github.com/gamaacademy).
