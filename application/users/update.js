@@ -1,4 +1,5 @@
 const updateUsersDB = require("../../interfaces/users/data-access/update");
+const status = require("http-status");
 
 const updateUsers = async ({id, name, cpf, address, res}) => {
     try {
@@ -8,7 +9,7 @@ const updateUsers = async ({id, name, cpf, address, res}) => {
 
     } catch (err ) {
         console.log("error", err);
-        res.status(500).send(err)
+        res.status(status.INTERNAL_SERVER_ERROR).send(err)
     }
 }
 

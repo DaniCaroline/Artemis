@@ -1,12 +1,12 @@
 const listProductApp = require("../../../application/products/list");
+const status = require("http-status");
 
-const listProducts = async (req, res) => {
+const listProducts = async (_req, res) => {
     try {
         listProductApp({res});
-        //return res.status(200).json({message: 'Registro excluido com sucesso'}); 
     } catch (err ) {
         console.log("error", err);
-        res.status(500).send(err)
+        res.status(status.INTERNAL_SERVER_ERROR).send(err)
     }
 }
 

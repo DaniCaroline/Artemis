@@ -1,4 +1,5 @@
 const createOrdersItemsApp = require("../../../application/orders_items/create");
+const status = require("http-status");
 
 const createOrdersItems = async (req, res) => {
     const {product_id, orders_id} = req.body;
@@ -8,7 +9,7 @@ const createOrdersItems = async (req, res) => {
 
     } catch (err ) {
         console.log("error", err);
-        res.status(500).send(err)
+        res.status(status.INTERNAL_SERVER_ERROR).send(err)
     }
 }
 
