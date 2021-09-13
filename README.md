@@ -117,6 +117,4 @@ Acessando a documentação do projeto <http://localhost:8000/docs>.
 - [Marília Moura](https://github.com/Mariliamourafer)
 - [Yasmin Medeiros](https://github.com/medeiros-yasmin)
 
----
-
-Projeto desenvolvido na 3° Edição do [Luiza <Code>](https://github.com/luizalabs) em parceiria com a [Gama Academy](https://github.com/gamaacademy).
+Projeto desenvolvido na 3° Edição do [Luiza <Code>](https://github.com/luizalabs) em parceria com a [Gama Academy](https://github.com/gamaacademy).
