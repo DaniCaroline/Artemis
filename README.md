@@ -83,6 +83,12 @@ knex seed:make seed_name
 knex seed:run
 ```
 
+Criar o arquivo `.env` para adicionar as variáveis de ambiente, conforme abaixo:
+```
+PASSWORD_MYSQL={senha para acessar o banco de dados}
+DATABASE_MYSQL=db_xp
+```
+
 ---
 
 ## Como iniciar o projeto
