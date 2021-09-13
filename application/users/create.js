@@ -1,3 +1,4 @@
+const status = require("http-status");
 const insertUserDB = require("../../interfaces/users/data-access/create");
 
 const createUser = async ({name, cpf, address, res}) => {
@@ -9,12 +10,12 @@ const createUser = async ({name, cpf, address, res}) => {
 
         if (Number(cpf)) {
             if (cpf?.length > 11 || cpf?.length < 11) {
-                res.status(500).send("erro no tamanho do cpf")
+                res.status(status.INTERNAL_SERVER_ERROR).send("erro no tamanho do cpf")
                 return;
             }
 
         } else {
-            res.status(500).send("digite apenas numeros")
+            res.status(status.INTERNAL_SERVER_ERROR).send("digite apenas numeros")
             return;
         }
 
@@ -33,7 +34,7 @@ const createUser = async ({name, cpf, address, res}) => {
             if (cpf[9] == (11 - cpfFirstDig)){
                 console.log("o digito esta correto")
             } else {
-                res.status(500).send("este cpf não é valido")
+                res.status(status.INTERNAL_SERVER_ERROR).send("este cpf não é valido")
                 return;
             }
         }
@@ -52,14 +53,14 @@ const createUser = async ({name, cpf, address, res}) => {
             if (cpf[10] == (11 - cpfSecDig)){
                 console.log("o digito esta correto")
             } else {
-                res.status(500).send("este cpf não é valido")
+                res.status(status.INTERNAL_SERVER_ERROR).send("este cpf não é valido")
                 return;
             }
         }      
         
         // validação do name
         if (name == "" || address == ""){
-            res.status(500).send("campo vazio")
+            res.status(status.INTERNAL_SERVER_ERROR).send("campo vazio")
             return;           
         }
         
@@ -67,7 +68,7 @@ const createUser = async ({name, cpf, address, res}) => {
 
     } catch (err ) {
         console.log("error", err);
-        res.status(500).send(err)
+        res.status(status.INTERNAL_SERVER_ERROR).send(err)
     }
 }
 

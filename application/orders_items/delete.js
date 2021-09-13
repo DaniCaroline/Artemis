@@ -2,7 +2,6 @@ const deleteOrdersItemsDB = require("../../interfaces/orders_items/data-access/d
 
 const deleteOrdersItems = async ({id, res}) => {
     // id não existente 
-
     deleteOrdersItemsDB({id}); 
 }
 

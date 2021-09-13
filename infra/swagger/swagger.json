@@ -309,7 +309,7 @@
             "type": "number",
             "example": "1"
           },
-          "order_id": {
+          "orders_id": {
             "type": "number",
             "example": "2"
           }
